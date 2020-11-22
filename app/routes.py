@@ -15,7 +15,6 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
-
 @app.route('/')
 @app.route('/index')
 @login_required
@@ -38,7 +37,7 @@ def user(username):
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
-    form = EditProfileForm()
+    form = EditProfileForm(current_user.username)
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
@@ -55,7 +54,6 @@ def edit_profile():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    posts = Post.query.all()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
