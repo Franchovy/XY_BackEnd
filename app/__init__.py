@@ -6,13 +6,14 @@ from flask_login import LoginManager
 import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
-from flask_wtf.csrf import CsrfProtect
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 login = LoginManager(app)
 login.login_view = 'login'
 
 app.config.from_object(Config)
+csrf = CSRFProtect(app)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

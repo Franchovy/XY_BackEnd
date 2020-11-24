@@ -14,4 +14,6 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['maxrofra@gmail.com', 'bucciolsimone@gmail.com']
 
+    WTF_CSRF_ENABLED = False
+
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'  # USE SECRET KEY IN DEPLOYMENT

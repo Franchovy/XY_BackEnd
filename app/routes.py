@@ -1,9 +1,10 @@
+import flask
 from flask import render_template, flash, redirect, request, url_for
 from flask_login import login_user, logout_user, current_user
 from werkzeug.urls import url_parse
 
 from app.forms import LoginForm, RegistrationForm, EditProfileForm
-from app import app, db
+from app import app, db, csrf
 from app.models import User, Post
 from flask_login import login_required
 from datetime import datetime
@@ -14,6 +15,7 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+
 
 @app.route('/')
 @app.route('/index')
@@ -26,8 +28,8 @@ def index():
 # Route for debugging purposes
 @app.route('/message', methods=['POST'])
 def message():
-    print("Received connection on /message route with message: ")
-    print(request.json)
+    print("Received connection on /message route with message: ", request.json['message'])
+
     return {"message": request.json['message']}
 
 
@@ -62,20 +64,26 @@ def edit_profile():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    print(form.hidden_tag())
+
+    if flask.request.method == 'POST':
+        print("POST")
+    elif flask.request.method == 'GET':
+        # Return CSRF token for proper authentication
+        print("GET")
+        return form.hidden_tag()
+
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             print('Invalid username or password')
             return redirect('/login')
         login_user(user, remember=form.remember_me.data)
-        next_page = request.args.get('next')
-        if not next_page or url_parse(next_page).netloc != '': # login redirects to next_page if provided
-            next_page = '/index'
         print("Authenticated")
-        return redirect(next_page)
+        return {"message": "Login succeeded"}
     if form.errors:
         print("Errors:", form.errors)
-    return render_template('login.html', form=form)
+    return {"message": "Login failed"}
 
 
 @app.route('/register', methods=['GET', 'POST'])

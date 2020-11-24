@@ -1,4 +1,4 @@
-2020-11-24 12:19:07,501 ERROR: Exception on /login [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+2020-11-24 15:04:33,284 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,28 +12,12 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 71, in login
-    return render_template('login.html')
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/login.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/base.html", line 30, in top-level template code
-    {% block content %}{% endblock %}
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/login.html", line 6, in block "content"
-    {{ form.hidden_tag() }}
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2020-11-24 12:19:07,535 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 68, in login
+    form['csrf_token'] = request.json['csrfToken']
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/wtforms/form.py", line 277, in __setitem__
+    raise TypeError('Fields may not be added to Form instances, only classes.')
+TypeError: Fields may not be added to Form instances, only classes.
+2020-11-24 15:09:04,779 ERROR: Exception on /login [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -47,36 +31,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 71, in login
-    return render_template('login.html')
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/login.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/base.html", line 30, in top-level template code
-    {% block content %}{% endblock %}
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/login.html", line 6, in block "content"
-    {{ form.hidden_tag() }}
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2020-11-24 12:19:55,053 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-24 12:20:42,772 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-24 12:21:08,717 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:50]
-2020-11-24 13:09:48,488 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 13:10:02,151 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 13:15:42,521 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 13:22:01,964 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 13:22:38,652 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 13:22:46,653 ERROR: Exception on /message [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 68, in login
+    form['csrf_token'] = request.json['csrfToken']
+TypeError: 'NoneType' object is not subscriptable
+2020-11-24 15:09:04,788 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -90,10 +48,11 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 29, in message
-    print("Received connection on /message route with message: " + request.form.get('message'))
-TypeError: can only concatenate str (not "NoneType") to str
-2020-11-24 13:23:53,728 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 13:24:14,569 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 13:27:37,534 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 13:28:03,512 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 68, in login
+    form['csrf_token'] = request.json['csrfToken']
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/wtforms/form.py", line 277, in __setitem__
+    raise TypeError('Fields may not be added to Form instances, only classes.')
+TypeError: Fields may not be added to Form instances, only classes.
+2020-11-24 15:09:21,673 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-24 15:11:27,421 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-24 15:14:40,084 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
