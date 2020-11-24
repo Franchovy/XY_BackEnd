@@ -23,6 +23,14 @@ def index():
     return render_template('index.html', title='Home', posts=posts)
 
 
+# Route for debugging purposes
+@app.route('/message', methods=['POST'])
+def message():
+    print("Received connection on /message route with message: ")
+    print(request.json)
+    return {"message": request.json['message']}
+
+
 @app.route('/user/<username>')
 @login_required
 def user(username):
@@ -57,14 +65,17 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
+            print('Invalid username or password')
             return redirect('/login')
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '': # login redirects to next_page if provided
             next_page = '/index'
+        print("Authenticated")
         return redirect(next_page)
-    return render_template('login.html', title='Sign In', form=form)
+    if form.errors:
+        print("Errors:", form.errors)
+    return render_template('login.html', form=form)
 
 
 @app.route('/register', methods=['GET', 'POST'])
