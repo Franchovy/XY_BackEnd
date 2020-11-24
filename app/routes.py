@@ -1,5 +1,5 @@
 import flask
-from flask import render_template, flash, redirect, request, url_for
+from flask import render_template, flash, redirect, request, url_for, g, jsonify
 from flask_login import login_user, logout_user, current_user
 from werkzeug.urls import url_parse
 
@@ -79,11 +79,26 @@ def login():
             print('Invalid username or password')
             return redirect('/login')
         login_user(user, remember=form.remember_me.data)
-        print("Authenticated")
-        return {"message": "Login succeeded"}
+        print("Authenticated: " + user.username)
+        token = user.generate_auth_token()
+        return jsonify({"message": "Login succeeded", 'token': token.decode('ascii')})
     if form.errors:
         print("Errors:", form.errors)
     return {"message": "Login failed"}
+
+
+@app.route('/verifyLogin')
+@login_required
+def verify_login():
+    print(request.headers)
+    authTokenHeader = request.headers.get('Session')
+    print("Auth token:" + authTokenHeader)
+    if authTokenHeader:
+        user = User.verify_auth_token(authTokenHeader)
+        if user:
+            return {"success": user.is_authenticated}
+    else:
+        return {"message": "there was an error.", "error": "you failed"}
 
 
 @app.route('/register', methods=['GET', 'POST'])

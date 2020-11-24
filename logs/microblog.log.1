@@ -1,4 +1,4 @@
-2020-11-24 14:25:24,923 ERROR: Exception on /login [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+2020-11-24 15:04:33,284 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,75 +12,12 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 69, in login
-    print("Username: " + form.username.data)
-TypeError: can only concatenate str (not "NoneType") to str
-2020-11-24 14:26:35,065 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 14:26:37,946 ERROR: Exception on /login [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 69, in login
-    print("Username: " + form.username.data)
-TypeError: can only concatenate str (not "NoneType") to str
-2020-11-24 14:29:02,237 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 14:32:56,873 ERROR: Exception on /login [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 74, in login
-    print("Username: " + form.username.data)
-TypeError: can only concatenate str (not "NoneType") to str
-2020-11-24 14:33:18,581 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 14:35:22,032 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 14:35:36,240 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 14:35:38,540 ERROR: Exception on /login [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 72, in login
-    print(form.csrf_token.value)
-AttributeError: 'CSRFTokenField' object has no attribute 'value'
-2020-11-24 14:35:46,218 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 14:41:10,986 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:48]
-2020-11-24 14:44:57,460 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:50]
-2020-11-24 14:46:43,416 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:50]
-2020-11-24 14:49:24,208 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:50]
-2020-11-24 14:53:47,515 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-24 15:01:27,691 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-24 15:03:35,270 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-24 15:04:30,160 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-24 15:04:33,247 ERROR: Exception on /login [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 68, in login
+    form['csrf_token'] = request.json['csrfToken']
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/wtforms/form.py", line 277, in __setitem__
+    raise TypeError('Fields may not be added to Form instances, only classes.')
+TypeError: Fields may not be added to Form instances, only classes.
+2020-11-24 15:09:04,779 ERROR: Exception on /login [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -97,3 +34,66 @@ Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 68, in login
     form['csrf_token'] = request.json['csrfToken']
 TypeError: 'NoneType' object is not subscriptable
+2020-11-24 15:09:04,788 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 68, in login
+    form['csrf_token'] = request.json['csrfToken']
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/wtforms/form.py", line 277, in __setitem__
+    raise TypeError('Fields may not be added to Form instances, only classes.')
+TypeError: Fields may not be added to Form instances, only classes.
+2020-11-24 15:09:21,673 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-24 15:11:27,421 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-24 15:14:40,084 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-24 18:07:37,898 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-24 18:07:42,883 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 108, in login
+    return {"message": "Login succeeded", "user": user.api_key}
+AttributeError: 'User' object has no attribute 'api_key'
+2020-11-24 18:16:52,324 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-24 18:16:56,559 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 108, in login
+    token = g.user.generate_auth_token()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+2020-11-24 18:18:15,519 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-24 18:42:13,200 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-24 18:58:34,524 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
