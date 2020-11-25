@@ -14,7 +14,14 @@ from datetime import datetime
 def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
+        print("User is authenticated")
         db.session.commit()
+    else:
+        authTokenHeader = request.headers.get('Session')
+        if authTokenHeader:
+            user = User.verify_auth_token(authTokenHeader)
+            if user:
+                login_user(user)
 
 
 @app.route('/')

@@ -19,3 +19,6 @@ Traceback (most recent call last):
 AttributeError: 'EnvironHeaders' object has no attribute 'AuthToken'
 2020-11-24 19:00:16,935 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
 2020-11-24 19:11:50,675 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-25 10:20:15,005 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-25 10:27:40,538 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+2020-11-25 10:30:05,881 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
