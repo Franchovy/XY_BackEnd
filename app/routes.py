@@ -1,3 +1,5 @@
+import json
+
 import flask
 from flask import render_template, flash, redirect, request, url_for, g, jsonify
 from flask_login import login_user, logout_user, current_user
@@ -24,12 +26,18 @@ def before_request():
                 login_user(user)
 
 
+@app.route('/testpage')
+def testpage():
+    posts = posts = Post.query.all()
+    return render_template('index.html', title='Home', posts=posts)
+
+
 @app.route('/')
 @app.route('/index')
 @login_required
 def index():
     posts = posts = Post.query.all()
-    return render_template('index.html', title='Home', posts=posts)
+    return {"message": "Here are Recent Posts:"}
 
 
 # Route for debugging purposes
@@ -71,56 +79,44 @@ def edit_profile():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    print(form.hidden_tag())
+
+    requestDecoded = request.data.decode()
+    print(requestDecoded)
 
     if flask.request.method == 'POST':
-        print("POST")
+        if form.validate_on_submit():
+            user = User.query.filter_by(username=form.username.data).first()
+            if user is None or not user.check_password(form.password.data):
+                print('Invalid username or password')
+                return jsonify({"message": 'Invalid username or password'})
+            login_user(user, remember=form.remember_me.data)
+            print("Authenticated: " + user.username)
+            token = user.generate_auth_token()
+            return jsonify({"message": "Login succeeded", 'token': token.decode('ascii')})
+        if form.errors:
+            print("Errors:", form.errors)
+        return {"message": "Login failed"}
     elif flask.request.method == 'GET':
         # Return CSRF token for proper authentication
-        print("GET")
         return form.hidden_tag()
-
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user is None or not user.check_password(form.password.data):
-            print('Invalid username or password')
-            return redirect('/login')
-        login_user(user, remember=form.remember_me.data)
-        print("Authenticated: " + user.username)
-        token = user.generate_auth_token()
-        return jsonify({"message": "Login succeeded", 'token': token.decode('ascii')})
-    if form.errors:
-        print("Errors:", form.errors)
-    return {"message": "Login failed"}
-
-
-@app.route('/verifyLogin')
-@login_required
-def verify_login():
-    print(request.headers)
-    authTokenHeader = request.headers.get('Session')
-    print("Auth token:" + authTokenHeader)
-    if authTokenHeader:
-        user = User.verify_auth_token(authTokenHeader)
-        if user:
-            return {"success": user.is_authenticated}
-    else:
-        return {"message": "there was an error.", "error": "you failed"}
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    if current_user.is_authenticated:
-        return redirect('/index')
     form = RegistrationForm()
+
+    requestDecoded = request.data.decode()
+    print(requestDecoded)
+
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
-        return redirect('/login')
-    return render_template('register.html', title='Register', form=form)
+        print("Registered new user: ", user.username)
+        token = user.generate_auth_token()
+        return {"message": "signup successful", "token": token.decode('ascii')}
+    return {"message": "signup failed"}
 
 
 @app.route('/logout')
