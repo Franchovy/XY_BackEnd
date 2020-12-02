@@ -1,4 +1,6 @@
 from flask import Flask
+from sqlalchemy import create_engine, MetaData
+
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -8,7 +10,12 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
 from flask_wtf.csrf import CSRFProtect
 
+UPLOAD_FOLDER = '../uploads'
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 login = LoginManager(app)
 login.login_view = 'login'
 
@@ -16,7 +23,7 @@ app.config.from_object(Config)
 csrf = CSRFProtect(app)
 
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+migrate = Migrate(app, db, render_as_batch=True)
 
 from app import routes, models, errors
 

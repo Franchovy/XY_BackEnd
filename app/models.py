@@ -13,19 +13,17 @@ def load_user(id):
 
 
 class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(120), index=True, unique=True)
-    password_hash = db.Column(db.String(128))
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
+    __table__ = db.Table('users', db.metadata,
+                        db.Column('id', db.Integer, primary_key=True),
+                        db.Column('username', db.String(64), index=True, unique=True),
+                        db.Column('email', db.String(120), index=True, unique=True),
+                        db.Column('password_hash', db.String(128)),
 
-    about_me = db.Column(db.String(140))
-    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+                        db.Column('join_timestamp', db.DateTime, default=datetime.utcnow()),
+                        db.Column('about_me', db.String(140)),
+                        db.Column('followers', db.Integer, db.ForeignKey('users.id')),
+                        db.Column('following', db.Integer, db.ForeignKey('users.id')))
 
-    followers = db.Table('followers',
-                         db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-                         db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
-                         )
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -59,10 +57,25 @@ class User(UserMixin, db.Model):
 
 
 class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    __table__ = db.Table('posts', db.metadata,
+                         db.Column('id', db.Integer, primary_key=True),
+                         db.Column('content', db.String(140)),
+                         db.Column('timestamp', db.DateTime, index=True, default=datetime.utcnow),
+                         db.Column('user', db.Integer, db.ForeignKey('users.id'))
+                         )
 
     def __repr__(self):
-        return '<Post {}>'.format(self.body)
+        return '<Post {}>'.format(self.content)
+
+    def to_dict(self):
+        res = {}
+        for field in self.__table__.columns.keys():
+            if hasattr(self, field):
+                res[field] = getattr(self, field)
+        return res
+
+class Image(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    img = db.Column(db.Text, unique=True, nullable=False, default="<no image>")
+    name = db.Column(db.Text, nullable=False, default="image")
+    mimetype = db.Column(db.Text, nullable=False, default=".png")

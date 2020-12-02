@@ -4,10 +4,11 @@ import flask
 from flask import render_template, flash, redirect, request, url_for, g, jsonify
 from flask_login import login_user, logout_user, current_user
 from werkzeug.urls import url_parse
+from werkzeug.utils import secure_filename
 
 from app.forms import LoginForm, RegistrationForm, EditProfileForm
 from app import app, db, csrf
-from app.models import User, Post
+from app.models import User, Post, Image
 from flask_login import login_required
 from datetime import datetime
 
@@ -33,11 +34,24 @@ def testpage():
 
 
 @app.route('/')
-@app.route('/index')
+@app.route('/get_all_posts')
 @login_required
-def index():
-    posts = posts = Post.query.all()
-    return {"message": "Here are Recent Posts:"}
+def get_all_posts():
+    posts = Post.query.all()
+
+    postsArray = []
+    for post in posts:
+        user = User.query.get(post.user)
+        postsArray.append({"username": user.username, "content": post.content})
+    print(postsArray)
+    response = json.dumps({
+        "response": postsArray,
+        "status": 200,
+        "mimetype": 'application/json'
+    })
+    print(json.loads(response))
+
+    return response
 
 
 # Route for debugging purposes
@@ -52,10 +66,8 @@ def message():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    posts = [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
-    ]
+    posts = Post.query.filter_by(username=username)
+    print("Get posts: ", posts)
     return render_template('user.html', user=user, posts=posts)
 
 
@@ -88,17 +100,17 @@ def login():
             user = User.query.filter_by(username=form.username.data).first()
             if user is None or not user.check_password(form.password.data):
                 print('Invalid username or password')
-                return jsonify({"message": 'Invalid username or password'})
+                return jsonify({"message": 'Invalid username or password'}), 404
             login_user(user, remember=form.remember_me.data)
             print("Authenticated: " + user.username)
             token = user.generate_auth_token()
-            return jsonify({"message": "Login succeeded", 'token': token.decode('ascii')})
+            return jsonify({"message": "Login succeeded", 'token': token.decode('ascii'), "status": 200})
         if form.errors:
             print("Errors:", form.errors)
-        return {"message": "Login failed"}
+        return {"message": "Login failed"}, 301
     elif flask.request.method == 'GET':
         # Return CSRF token for proper authentication
-        return form.hidden_tag()
+        return form.hidden_tag(), 200
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -116,7 +128,7 @@ def register():
         print("Registered new user: ", user.username)
         token = user.generate_auth_token()
         return {"message": "signup successful", "token": token.decode('ascii')}
-    return {"message": "signup failed"}
+    return {"message": "signup failed"}, 301
 
 
 @app.route('/logout')
@@ -124,3 +136,36 @@ def register():
 def logout():
     logout_user()
     return redirect('/index')
+
+
+# Upload image:
+# use request.files for access.
+#
+@app.route('/upload_image', methods=['GET', 'POST'])
+def upload_image():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            return 'No file part', 400
+        file = request.files['file']
+        if not file:
+            return "No file uploaded", 400
+
+        filename = secure_filename(file.filename)
+        mimetype = file.mimetype
+
+        img = Image(img=file.read, mimetype=mimetype, name=filename)
+        db.session.add(img)
+        db.session.commit()
+
+        return "Image has been uploaded", 200
+    else:
+        return '''
+            <!doctype html>
+            <title>Upload new File</title>
+            <h1>Upload new File</h1>
+            <form method=post enctype=multipart/form-data>
+              <input type=file name=file>
+              <input type=submit value=Upload>
+            </form>
+            '''

@@ -1,86 +1,4 @@
-2020-11-22 20:10:46,477 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-22 21:35:38,003 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-22 23:46:28,900 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-22 23:50:20,046 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-22 23:50:50,201 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-22 23:52:25,077 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-22 23:52:43,560 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-22 23:53:12,047 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-22 23:54:25,786 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-22 23:58:33,686 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-22 23:58:47,319 ERROR: Exception on /csrf [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 21, in csrf
-    return render_template('ios.html')
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/loaders.py", line 127, in load
-    code = environment.compile(source, name, filename)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 638, in compile
-    self.handle_exception(source=source_hint)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/ios.html", line 1, in template
-    {% csrftoken %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'csrftoken'.
-2020-11-23 00:03:12,292 ERROR: Exception on /csrf [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 21, in csrf
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/loaders.py", line 127, in load
-    code = environment.compile(source, name, filename)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 638, in compile
-    self.handle_exception(source=source_hint)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/ios.html", line 1, in template
-    {% csrftoken %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'csrftoken'.
-2020-11-23 00:03:25,678 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:47]
-2020-11-23 00:11:49,995 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:53]
-2020-11-23 00:14:29,757 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:55]
-2020-11-23 00:15:49,438 ERROR: Exception on /csrf [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+2020-12-01 18:42:52,287 ERROR: Exception on /get_all_posts [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -104,5 +22,71 @@ Traceback (most recent call last):
     return _json.JSONEncoder.default(self, o)
   File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 179, in default
     raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type function is not JSON serializable
-2020-11-23 00:18:00,463 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:55]
+TypeError: Object of type Response is not JSON serializable
+2020-12-01 18:46:17,921 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:46:36,934 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:46:46,249 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:47:06,681 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:47:10,472 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:51:25,723 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:51:42,150 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:51:48,278 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:52:00,762 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:52:38,581 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:52:52,600 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 18:53:05,453 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: users.join_timestamp
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 91, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3429, in first
+    ret = list(self[0:1])
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3203, in __getitem__
+    return list(res)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.join_timestamp
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.join_timestamp AS users_join_timestamp, users.about_me AS users_about_me, users.followers AS users_followers, users.following AS users_following 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('maxime', 1, 0)]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)

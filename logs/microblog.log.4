@@ -1,4 +1,13 @@
-2020-11-24 18:58:42,145 ERROR: Exception on /verifyLogin [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+2020-12-01 19:15:50,676 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: users.join_timestamp
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,31 +21,49 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 94, in verify_login
-    user = User.verify_auth_token(request.headers.AuthToken)
-AttributeError: 'EnvironHeaders' object has no attribute 'AuthToken'
-2020-11-24 19:00:16,935 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-24 19:11:50,675 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-25 10:20:15,005 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-25 10:27:40,538 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-25 10:30:05,881 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-25 16:07:31,575 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-25 16:34:30,066 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-25 17:21:18,115 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-25 17:21:45,283 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-25 17:23:15,560 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-25 17:28:53,053 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-25 17:29:54,924 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-26 11:57:11,412 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-26 21:30:22,220 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-27 12:29:11,503 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-27 12:29:47,158 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-27 12:30:02,215 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-27 12:41:33,873 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-27 12:53:55,908 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-27 12:55:06,140 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 91, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3429, in first
+    ret = list(self[0:1])
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3203, in __getitem__
+    return list(res)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.join_timestamp
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.join_timestamp AS users_join_timestamp, users.about_me AS users_about_me, users.followers AS users_followers, users.following AS users_following 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('XYFounder', 1, 0)]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-12-01 19:15:50,844 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: users.join_timestamp
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -50,38 +77,36 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 79, in login
-    form = LoginForm()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/wtforms/form.py", line 208, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask_wtf/form.py", line 87, in __init__
-    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/wtforms/form.py", line 274, in __init__
-    self.process(formdata, obj, data=data, **kwargs)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/wtforms/form.py", line 118, in process
-    formdata = self.meta.wrap_formdata(self, formdata)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask_wtf/form.py", line 64, in wrap_formdata
-    return ImmutableMultiDict(request.get_json())
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/werkzeug/datastructures.py", line 419, in __init__
-    for key, value in mapping or ():
-ValueError: not enough values to unpack (expected 2, got 1)
-2020-11-27 12:55:56,641 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-27 12:56:28,194 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
-2020-11-27 13:05:50,730 ERROR: Exception on /register [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 123, in register
-    print("Register request: " + request.form.get('username'))
-TypeError: can only concatenate str (not "NoneType") to str
-2020-11-27 13:08:48,803 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:49]
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 91, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3429, in first
+    ret = list(self[0:1])
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3203, in __getitem__
+    return list(res)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.join_timestamp
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.join_timestamp AS users_join_timestamp, users.about_me AS users_about_me, users.followers AS users_followers, users.following AS users_following 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('XYFounder', 1, 0)]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
