@@ -1,4 +1,4 @@
-2020-12-01 19:15:50,676 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+2020-12-01 19:15:51,024 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
     self.dialect.do_execute(
@@ -54,7 +54,8 @@ WHERE users.username = ?
  LIMIT ? OFFSET ?]
 [parameters: ('XYFounder', 1, 0)]
 (Background on this error at: http://sqlalche.me/e/13/e3q8)
-2020-12-01 19:15:50,844 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+2020-12-01 21:06:57,739 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 21:08:57,320 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
     self.dialect.do_execute(
@@ -108,5 +109,11 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user
 FROM users 
 WHERE users.username = ?
  LIMIT ? OFFSET ?]
-[parameters: ('XYFounder', 1, 0)]
+[parameters: ('XYfounder', 1, 0)]
 (Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-12-01 21:12:24,502 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 21:12:32,681 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 21:12:45,114 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 21:13:38,960 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 21:13:46,597 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-01 21:14:25,828 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]

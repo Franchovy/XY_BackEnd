@@ -138,6 +138,17 @@ def logout():
     return redirect('/index')
 
 
+# create_post
+@app.route('/create_post')
+@login_required
+def create_post():
+
+# create post form
+# verify form
+# set username from current_user
+# make post model and add/commit to db
+
+
 # Upload image:
 # use request.files for access.
 #
@@ -169,3 +180,4 @@ def upload_image():
               <input type=submit value=Upload>
             </form>
             '''
+
