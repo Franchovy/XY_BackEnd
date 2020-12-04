@@ -1,66 +1,75 @@
-2020-12-01 18:53:46,101 ERROR: Exception on /login [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+2020-12-04 10:14:49,282 ERROR: Exception on /upload_image [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
     self.dialect.do_execute(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
     cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such column: users.join_timestamp
+sqlite3.IntegrityError: datatype mismatch
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 91, in login
-    user = User.query.filter_by(username=form.username.data).first()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3429, in first
-    ret = list(self[0:1])
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3203, in __getitem__
-    return list(res)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3535, in __iter__
-    return self._execute_and_instances(context)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3560, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
-    return meth(self, multiparams, params)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
-    ret = self._execute_context(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
-    self._handle_dbapi_exception(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
-    util.raise_(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 192, in upload_image
+    db.session.commit()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2536, in flush
+    self._flush(objects)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2678, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
     raise exception
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2638, in _flush
+    flush_context.execute()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 1083, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
     self.dialect.do_execute(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
     cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.join_timestamp
-[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.join_timestamp AS users_join_timestamp, users.about_me AS users_about_me, users.followers AS users_followers, users.following AS users_following 
-FROM users 
-WHERE users.username = ?
- LIMIT ? OFFSET ?]
-[parameters: ('XYfounder', 1, 0)]
-(Background on this error at: http://sqlalche.me/e/13/e3q8)
-2020-12-01 18:54:09,647 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-01 18:58:19,021 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-01 18:58:28,755 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-01 18:58:54,734 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-01 18:59:16,980 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-01 18:59:21,312 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-01 18:59:31,776 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-01 18:59:38,863 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-01 18:59:49,575 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-01 19:00:39,815 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) datatype mismatch
+[SQL: INSERT INTO image (id, img, name, mimetype) VALUES (?, ?, ?, ?)]
+[parameters: ('b8ae7bb9-843f-4efb-922d-253c9b54153e', 'iVBORw0KGgoAAAANSUhEUgAAAQcAAACMCAYAAABxq2wIAAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAAT ... (29170 characters truncated) ... pbutcTFasXGdixsaeqeq+vqs6PhbX3XLufB3nxsYLqmz47yWx7zZd5L6ar4hd03SJ21rddEXs6tiClRvr/u+KNitizWtJm9xY81rUZnUsrrkD5kb4Oq678f7/B1tZTRbqMbwRAAAAAElFTkSuQmCC', 'file', '.png')]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+2020-12-04 10:16:04,305 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-04 10:16:08,512 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]

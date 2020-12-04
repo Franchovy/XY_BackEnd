@@ -1,109 +1,91 @@
-2020-12-02 22:05:22,826 ERROR: Exception on /create_post [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py:1891]
+2020-12-04 11:09:23,131 ERROR: Exception on /upload_image [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1926, in dispatch_request
-    self.raise_routing_exception(req)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1908, in raise_routing_exception
-    raise request.routing_exception
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/ctx.py", line 350, in match_request
-    result = self.url_adapter.match(return_rule=True)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/werkzeug/routing.py", line 1945, in match
-    raise NotFound()
-werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: images.img
 
-During handling of the above exception, another exception occurred:
+The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1816, in handle_user_exception
-    return self.handle_http_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1744, in handle_http_exception
-    return handler(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/errors.py", line 6, in not_found_error
-    return render_template('404.html'), 404
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/404.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/base.html", line 30, in top-level template code
-    {% block content %}{% endblock %}
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/404.html", line 5, in block "content"
-    <p><a href="{{ url_for('index') }}">Back</a></p>
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 2216, in handle_url_build_error
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
     reraise(exc_type, exc_value, tb)
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/werkzeug/routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'index'. Did you mean 'login' instead?
-2020-12-02 22:06:09,433 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 22:06:13,423 ERROR: Exception on /create_post [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1926, in dispatch_request
-    self.raise_routing_exception(req)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1908, in raise_routing_exception
-    raise request.routing_exception
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/ctx.py", line 350, in match_request
-    result = self.url_adapter.match(return_rule=True)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/werkzeug/routing.py", line 1945, in match
-    raise NotFound()
-werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
-
-During handling of the above exception, another exception occurred:
-
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 192, in upload_image
+    db.session.commit()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2536, in flush
+    self._flush(objects)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2678, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2638, in _flush
+    flush_context.execute()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 1083, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: images.img
+[SQL: INSERT INTO images (id, img, name, mimetype) VALUES (?, ?, ?, ?)]
+[parameters: ('6e7cd0cd-ecd0-4fad-b285-331c631b1347', 'iVBORw0KGgoAAAANSUhEUgAAAQcAAACMCAYAAABxq2wIAAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAAT ... (29170 characters truncated) ... pbutcTFasXGdixsaeqeq+vqs6PhbX3XLufB3nxsYLqmz47yWx7zZd5L6ar4hd03SJ21rddEXs6tiClRvr/u+KNitizWtJm9xY81rUZnUsrrkD5kb4Oq678f7/B1tZTRbqMbwRAAAAAElFTkSuQmCC', 'file', '.png')]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+2020-12-04 11:11:52,763 ERROR: Exception on /get_image [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1816, in handle_user_exception
-    return self.handle_http_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1744, in handle_http_exception
-    return handler(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/errors.py", line 6, in not_found_error
-    return render_template('404.html'), 404
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/404.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/base.html", line 30, in top-level template code
-    {% block content %}{% endblock %}
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/templates/404.html", line 5, in block "content"
-    <p><a href="{{ url_for('index') }}">Back</a></p>
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 2216, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/werkzeug/routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'index'. Did you mean 'login' instead?
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-12-04 11:12:39,795 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-04 11:14:04,484 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-04 11:17:55,329 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-04 11:18:08,915 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-04 11:20:43,570 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-04 11:32:39,719 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-04 11:40:44,950 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]

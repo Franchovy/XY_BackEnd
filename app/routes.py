@@ -6,11 +6,17 @@ from flask_login import login_user, logout_user, current_user
 from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
-from app.forms import LoginForm, RegistrationForm, EditProfileForm
+from PIL import Image
+from io import BytesIO
+import base64
+
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, CreatePostForm
 from app import app, db, csrf
 from app.models import User, Post, Image
 from flask_login import login_required
 from datetime import datetime
+
+import uuid
 
 
 @app.before_request
@@ -139,9 +145,23 @@ def logout():
 
 
 # create_post
-@app.route('/create_post')
+@app.route('/create_post', methods=["POST"])
 @login_required
 def create_post():
+    form = CreatePostForm()
+
+    form.username = current_user.username
+
+    requestDecoded = request.data.decode()
+    print(requestDecoded)
+
+    if form.validate_on_submit():
+        new_post = Post(username=current_user.username, content=form.content)
+        db.session.add(new_post)
+        db.session.commit()
+        return {"message": "You've added a post to XY.", "status": 200}
+    return {"message": "Could not add post."}, 300
+
 
 # create post form
 # verify form
@@ -152,32 +172,41 @@ def create_post():
 # Upload image:
 # use request.files for access.
 #
-@app.route('/upload_image', methods=['GET', 'POST'])
+@app.route('/upload_image', methods=['POST'])
+@login_required
 def upload_image():
-    if request.method == 'POST':
+    print("Upload image request")
+
+    filename = request.form.get('file')
+    imagedata = request.form.get('attachment')
+    print("File: ", imagedata)
+
+    if request.method == 'POST' and filename is not None and imagedata is not None:
         # check if the post request has the file part
-        if 'file' not in request.files:
-            return 'No file part', 400
-        file = request.files['file']
-        if not file:
-            return "No file uploaded", 400
+        #mimetype = file.mimetype
 
-        filename = secure_filename(file.filename)
-        mimetype = file.mimetype
+        uid = uuid.uuid4().__str__()
+        print("Added image to database with id: ", uid)
+        img = Image(img=imagedata, mimetype=".png", name=filename, id=uid)
 
-        img = Image(img=file.read, mimetype=mimetype, name=filename)
         db.session.add(img)
         db.session.commit()
 
-        return "Image has been uploaded", 200
+        return {"message": "Image has been uploaded", "id": uid}, 200
     else:
-        return '''
-            <!doctype html>
-            <title>Upload new File</title>
-            <h1>Upload new File</h1>
-            <form method=post enctype=multipart/form-data>
-              <input type=file name=file>
-              <input type=submit value=Upload>
-            </form>
-            '''
+        return {"message": "Failed to upload image"}, 300
 
+
+@app.route('/get_image', methods=['GET'])
+@login_required
+def get_image():
+    imageId = request.headers.get('imageID')
+    print("Request for image: ", imageId)
+    if imageId is not None:
+        print("Checking database for id:", imageId)
+
+        img = Image.query.get(imageId)
+        result = {"message":"Here is your image", "imageData": img.img, "id":imageId}
+        print(result)
+        return result, 200
+    return {"message": "No image id found."}, 300

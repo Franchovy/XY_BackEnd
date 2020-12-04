@@ -1,75 +1,85 @@
-2020-12-02 10:10:53,728 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:12:12,319 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:12:18,645 ERROR: Exception on /get_all_posts [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+2020-12-04 10:28:32,801 ERROR: Exception on /upload_image [POST] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 47, in get_all_posts
-    response = app.response_class(
-TypeError: __init__() got an unexpected keyword argument 'data'
-2020-12-02 10:12:30,076 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:18:18,370 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:19:05,532 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:19:17,619 ERROR: Exception on /get_all_posts [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: images.img
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 52, in get_all_posts
-    print(json.loads(response))
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/json/__init__.py", line 341, in loads
-    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
-TypeError: the JSON object must be str, bytes or bytearray, not Response
-2020-12-02 10:20:31,060 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:23:38,209 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:23:45,123 ERROR: Exception on /get_all_posts [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py:1891]
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 192, in upload_image
+    db.session.commit()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2536, in flush
+    self._flush(objects)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2678, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2638, in _flush
+    flush_context.execute()
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 1083, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: images.img
+[SQL: INSERT INTO images (id, img, name, mimetype) VALUES (?, ?, ?, ?)]
+[parameters: ('a7d0d6d9-dcad-428f-bf65-5c79afdbc73a', 'iVBORw0KGgoAAAANSUhEUgAAAQcAAACMCAYAAABxq2wIAAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAAT ... (29170 characters truncated) ... pbutcTFasXGdixsaeqeq+vqs6PhbX3XLufB3nxsYLqmz47yWx7zZd5L6ar4hd03SJ21rddEXs6tiClRvr/u+KNitizWtJm9xY81rUZnUsrrkD5kb4Oq678f7/B1tZTRbqMbwRAAAAAElFTkSuQmCC', 'file', '.png')]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+2020-12-04 10:35:46,173 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+2020-12-04 11:09:23,128 ERROR: Exception on /get_image [GET] [in /Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/maximefranchot/PycharmProjects/XY_Backend/app/routes.py", line 52, in get_all_posts
-    print(json.loads(reponse))
-NameError: name 'reponse' is not defined
-2020-12-02 10:23:51,957 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:37:15,029 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:37:42,145 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:38:09,680 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 10:38:31,820 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 11:43:15,336 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 11:43:48,836 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 11:59:36,112 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
-2020-12-02 22:04:45,144 INFO: Microblog startup [in /Users/maximefranchot/PycharmProjects/XY_Backend/app/__init__.py:56]
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/maximefranchot/PycharmProjects/XY_Backend/venv/lib/python3.9/site-packages/flask/app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.

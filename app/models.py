@@ -75,7 +75,12 @@ class Post(db.Model):
         return res
 
 class Image(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    img = db.Column(db.Text, unique=True, nullable=False, default="<no image>")
-    name = db.Column(db.Text, nullable=False, default="image")
-    mimetype = db.Column(db.Text, nullable=False, default=".png")
+    __table__ = db.Table('images', db.metadata,
+                        db.Column("id", db.Text, primary_key=True),
+                        db.Column("img", db.Text, unique=True, nullable=False, default="<no image>"),
+                        db.Column("name", db.Text, nullable=False, default="image"),
+                        db.Column("mimetype", db.Text, nullable=False, default=".png")
+                         )
+
+    def __repr__(self):
+        return '<Image {}>'.format(self.name)
